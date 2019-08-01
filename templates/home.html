@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<style type="text/css">
+			h1 {
+				color: #8B0000; 
+				text-align:center;
+			}
+			h4 {
+				color: #1E90FF;
+				margin-left: 700px;
+			}
+			#column {
+			  float: left;
+			  width: 50%;
+			  padding: 5px;
+			}
+
+			/* Clearfix (clear floats) */
+			#row::after {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px; 
+			}
+			#map{
+				height: 300px;
+				width: 300px;
+				margin-left: 400px;
+			}
+			#dropzone{
+				height: 300px;
+				width: 300px;
+				border: 2px dashed #ccc;
+				color: #ccc;
+				line-height: 300px;
+				text-align: center;
+			}
+			#dropzone.dragover{
+				border-color: #000;
+				color: #ccc;
+			}
+			#damage {
+				border-collapse: collapse;
+		  		border: 1px solid black;
+		  		margin-left: 633px
+			}
+			#property {
+		  		border-collapse: collapse;
+		  		border: 1px solid black;
+		  		margin-left: 480px
+			} 
+			th,td {
+				text-align: center;
+				border: 1px solid black;
+				table-layout: fixed;
+				width: 150px;
+			}
+	</style>
+
+	<head>
+	    <meta charset="utf-8">
+	    <title>Pre-Assess Tool</title>
+<!-- 	    <link rel="stylesheet" type="text/css" href="http://Users/kaizhao/Box/GA/project-client_project/templates/style/style.css"> -->
+		<h1>PRE-ASSESSMENT REPORT</h1>
+		<h4> --- Powered by Google & Zillow</h6>
+	</head>
+
+	<body>
+		<div class="row">
+			<div id="map" class="column">
+			   	<script>
+			      function initPano() {
+			        var latitude = 37.79100833333333
+			        var longitude = -122.40064166666667
+			        // Note: constructed panorama objects have visible: true
+			        // set by default.
+			        var panorama = new google.maps.StreetViewPanorama(
+			            document.getElementById('map'), {
+			              position: {lat: latitude, lng: longitude},
+			              addressControlOptions: {
+			                position: google.maps.ControlPosition.BOTTOM_CENTER
+			              },
+			              linksControl: false,
+			              panControl: false,
+			              enableCloseButton: false
+			        		});
+			      		}
+			    </script>
+			    <script async defer
+			    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7FfI8GdAITl5jADD71044LGxqwf4E7Vo&callback=initPano">
+			    </script> -->
+	 		</div>
+
+<!-- 	 		<div id="upload" class="column">
+		 		<div class="dropzone" id="dropzone">Drop image here for assessment</div>
+		 		<script>
+		 			function() {
+		 				var dropzone = document.getElementById('dropzone');
+
+		 				dropzone.ondrop = function(e) {
+		 					e.preventDefault();
+		 					this.className = 'dropzone';
+
+		 				}
+
+		 				dropzone.ondragover = function() {
+		 					this.className = 'dropzone dragover';
+		 					return false;
+		 				}
+
+		 				dropzone.ondragleave = function() {
+		 					this.className = 'dropzone';
+		 					return false;
+		 				}
+		 			}
+		 		</script>
+	 		</div> -->
+	 	</div>
+
+		<br/>
+
+		<div class="tables">
+		   	<table id="damage">
+		    	<thead>
+					<tr>
+					    <th>Damage Type</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					   	<td>Fire</td>
+					</tr>
+				</tbody>
+		    </table>
+
+		    <br/>
+
+			<table id="property">
+				<thead>
+					<tr>
+				        <th>Property Data</th>
+				        <th>Value</th>
+				        <th>Assessment</th>
+					</tr>
+				</thead>
+				<tbody>
+				    <tr>
+				        <td>Zestimate(R)</td>
+				        <td>{{ property_info.current_value }}</td>
+				        <td colspan=9></td>
+				    </tr>
+				    <tr>
+				        <td>Last Sold Price</td>
+				        <td>{{ property_info.last_sold }}</td>
+				        <td></td>
+				    </tr>
+				    <tr>
+				        <td>Last Sold Date</td>
+				        <td>{{ property_info.last_sold_date }}</td>
+				        <td></td>
+				    </tr>
+				    <tr>
+				        <td>Use Code</td>
+				        <td>{{ property_info.property_type }}</td>
+				        <td></td>
+				    </tr>
+				    <tr>
+				        <td>Year Built</td>
+				        <td>{{ property_info.year_built }}</td>
+				        <td></td>
+				    </tr>
+				    <tr>
+				        <td>Bedrooms</td>
+				        <td>{{ property_info.bedrooms }}</td>
+				        <td></td>
+				    </tr>
+		            <tr>
+				        <td>Bathrooms</td>
+				        <td>{{ property_info.bathrooms }} </td>
+				        <td></td>
+				    </tr>      
+				    <tr>
+				        <td>Finished Sqft</td>
+				        <td>{{ property_info.sqft }}</td>
+				        <td></td>
+				    </tr>       
+				    <tr>
+				        <td>Lot Size Sqft</td>
+				        <td>{{ property_info.lot_size }}</td>
+				        <td></td>
+					</tr>        
+				</tbody>    
+			</table>
+		</div>
+	</body>
+</html>
