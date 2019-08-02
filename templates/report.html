@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<style type="text/css">
+			h1 {
+				color: #8B0000; 
+				text-align:center;
+			}
+			h4 {
+				color: #1E90FF;
+				text-align:center;
+			}
+			h3 {
+				color: black;
+				text-align: center;
+			}
+			#map {
+				height: 300px;
+				width: 300px;
+/*				margin-left: 37%;*/
+			}
+			.current_pic {
+				height: 300px;
+				width: 300px;
+/*				margin-right: 37%;	*/			
+			}
+			table.image{
+				border-collapse: collapse;
+		  		border: 1px solid black;
+		  		margin-left: auto;
+		  		margin-right: auto;				
+			}
+			table.damage {
+				border-collapse: collapse;
+		  		border: 1px solid black;
+		  		margin-left: auto;
+		  		margin-right: auto;
+			}
+			table.property {
+		  		border-collapse: collapse;
+		  		border: 1px solid black;
+		  		margin-left: auto;
+		  		margin-right: auto;
+			} 
+			th,td {
+				text-align: center;
+				border: 1px solid black;
+				table-layout: fixed;
+				width: 150px;
+			}
+			img.chart {
+				display: block;
+		  		margin-left: auto;
+		  		margin-right: auto;
+				width: 480px;
+			}
+			p {
+				text-align: center;
+				margin-bottom: 0;
+			}
+	</style>
+
+	<head>
+	    <meta charset="utf-8">
+	    <title>Pre-Assess Tool</title>
+		<h1>DSA PRE-ASSESSMENT REPORT</h1>
+		<h4>Powered by <strong>Google & Zillow</strong></h6>
+	</head>
+	<br/>
+
+	<body>
+		<h3>{{ full_address }}</h3>
+		<br/>
+		<table class="image">
+			<thead>
+				<tr>
+			        <th>Pre-Event Image</th>
+			        <th>Post-Event Image</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<div id="map">
+							<script>
+						      function initPano() {
+						        // Note: constructed panorama objects have visible: true
+						        // set by default.
+						        var panorama = new google.maps.StreetViewPanorama(
+						            document.getElementById('map'), {
+						              position: {lat: {{ lat }}, lng: {{ long }} },
+						              addressControlOptions: {
+						                position: google.maps.ControlPosition.BOTTOM_CENTER
+						              },
+						              linksControl: false,
+						              panControl: false,
+						              enableCloseButton: false
+						        		})
+						      	}
+							</script>
+							<script async defer
+							    src={{ panoSRC }}>
+							</script> -->
+					 	</div>
+			        </td>
+
+			        <td>
+					 	<div>
+					 		<img src="{{ img_file }}" class="current_pic">
+					 	</div>
+				    </td>
+			    </tr>
+		    </tbody>
+	    </table>
+
+		<br/>
+		<br/>
+<!-- ----------------------------------------------- TABLES ------------------------------------------------------>
+<!-- DAMAGE TYPE TABLE -->
+		<div class="tables">
+		   	<table class="damage">
+		    	<thead>
+					<tr>
+					    <th>Damage Type</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					   	<td>{{ damage_type }}</td>
+					</tr>
+				</tbody>
+		    </table>
+
+		    <br/>
+<!-- PROPERTY INFO TABLE -->
+			<table class="property">
+				<thead>
+					<tr>
+				        <th>Property Data</th>
+				        <th>Value</th>
+				        <th>Assessment Note</th>
+					</tr>
+				</thead>
+				<tbody>
+				    <tr>
+				        <td>Zestimate®</td>
+				        <td>{{ property_info.current_value }}</td>
+				        <td rowspan="9">
+				        	<textarea rows="13" wrap="soft" autofocus="autofocus" maxlength="360"></textarea>
+				        </td>
+				    </tr>
+				    <tr>
+				        <td>Last Sold Price</td>
+				        <td>{{ property_info.last_sold }}</td>
+				    </tr>
+				    <tr>
+				        <td>Last Sold Date</td>
+				        <td>{{ property_info.last_sold_date }}</td>
+				    </tr>
+				    <tr>
+				        <td>Use Code</td>
+				        <td>{{ property_info.property_type }}</td>
+				    </tr>
+				    <tr>
+				        <td>Year Built</td>
+				        <td>{{ property_info.year_built }}</td>
+				    </tr>
+				    <tr>
+				        <td>Bedrooms</td>
+				        <td>{{ property_info.bedrooms }}</td>
+				    </tr>
+		            <tr>
+				        <td>Bathrooms</td>
+				        <td>{{ property_info.bathrooms }} </td>
+				    </tr>      
+				    <tr>
+				        <td>Finished Sqft</td>
+				        <td>{{ property_info.sqft }}</td>
+				    </tr>       
+				    <tr>
+				        <td>Lot Size Sqft</td>
+				        <td>{{ property_info.lot_size }}</td>
+					</tr>        
+				</tbody>    
+			</table>
+		</div>
+
+		<br/>
+<!---------------------------------------------- PROPERTY PRICE CHART -------------------------------------------------->
+		<h3>Zestimate® Chart</h3>
+		<div>
+			<img src={{ chart_url }} class="chart">
+        </div>
+        <br/>
+        <br/>
+        <p>© Zillow, Inc., 2006-2016. Use is subject to Terms of Use</p>
+	</body>
+</html>

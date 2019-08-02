@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<style type="text/css">
+		h1 {
+			color: #307D7E;
+			font-size: 4em;
+			text-align: center;
+			margin-top: 15%;
+		}
+		form { 
+			margin: 0 auto; 
+			width:250px;
+		}
+	</style>
+	<head>
+		<title>Upload image</title>
+    	<h1>DamSmartAss</h1>
+	</head>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+    <body>
+    	<form action = "http://localhost:5000/uploader" method = "POST"
+	         enctype = "multipart/form-data">
+		<input type = "file" name = "file" />
+		<input type = "submit"/>
+	    </form>
+    </body>
+</html>

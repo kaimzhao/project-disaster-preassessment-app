@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<style type="text/css">
+			h1 {
+				color: #307D7E; 
+				text-align:center;
+				margin-top: 5%;
+			}
+			img.event {
+				display: block;
+				height: 300px;
+				width: 300px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+/*			p {
+				text-align: center;			
+			}*/
+			form {
+				margin-left: 35%;
+			}
+
+	</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Choose or type the address:</title>
+    <h1>Please Confirm Address</h1>
+</head>
+<br/>
+<br/>
+<body>
+    <div>
+        <img src="{{ img_file }}" alt="uploaded" class="event">
+    </div>
+    <br/>
+    <br/>
+    <form action = "http://localhost:5000/report" method = "POST" enctype = "multipart/form-data" class="form">
+        {% if addresses %}
+        <div>
+            <label for="select1">Select the correct address:</label>
+            <select name="address" id="select1">
+                <option value="none">None of the following</option>
+                {% for addr in addresses %}
+                <option value="{{ addr }}">{{ addr['full_address'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endif %}
+        <div>
+            {% if addresses %}
+            <p>If none of the above:</p >
+            {% else %}
+            <p>Failed to find addresses based on photo lat long, please type:</p >
+            {% endif %}
+            <label for="street_address">Street Address:</label>
+            <input name="street_address" type="text" id="street_address">
+            <label for="city">City:</label>
+            <input name="city" type="text" id="city">
+            <label for="state">State:</label>
+            <input name="state" type="text" id="state">
+        </div>
+        <div>
+        	<input type="hidden" id="lat" name="lat" value="{{ lat }}">
+        	<input type="hidden" id="long" name="long" value="{{ long }}">
+        	<input type="hidden" id="img_file" name="img_file" value="{{ img_file }}">
+            <input type="submit"/>
+        </div>
+    </form>
+</body>
+</html>
