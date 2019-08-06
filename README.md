@@ -32,8 +32,7 @@ Anchor links here:
 - [Contributions](#Contributions)
 
 ## Schematic
-[DataFlow diagram](./image/process_flow.png)
-<img src="./image/process_flow.png">
+<img src="https://github.com/miecky/project-client_project/blob/master/Image/process_flow.png?raw=true">
 
 ## How it works
 
