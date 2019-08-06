@@ -12,7 +12,7 @@ The assessor arrives at a residential parcel, takes a picture, and after confirm
 By using our application to generate damage assessment reports, provide value to three stakeholders:
 * Insurance claim assessors benefit from a streamlined workflow
 * Policyholders benefit from faster payment adjudication
-* Emergency relief organizations (nonprofits or governmental agenceies) benefit from greater insight into damage intensity and efficacy of preventative measures
+* Emergency relief organizations (nonprofits or governmental agencies) benefit from greater insight into damage intensity and efficacy of preventative measures
 
 Our prototype involves the following APIs:
 - [Google Vision AI](https://cloud.google.com/vision/)
@@ -21,17 +21,18 @@ Our prototype involves the following APIs:
 - [Zillow Get Deep Search Results](https://www.zillow.com/howto/api/GetDeepSearchResults.htm)
 
 USAGE NOTE: You will need to provide your own API keys, and modify credentials file path for API calls to your keys. Also note two limitations:
-* Our prototype requires that searched properties are included in Zillow database (i.e., commercial property will throw an error)
-* Our prototype requires that geolocation (latitude/longitude) is included in image file's metadata
+* Our prototype does not yet support Apple's HEIC format (default on iPhone), users must first select JPEG as output format (Settings -> Camera -> Format -> "Most Compatible").
+* Our prototype requires that searched properties are included in Zillow database (e.g., commercial property will throw an error)
+* Our prototype requires that geolocation (latitude/longitude) is included in image file's metadata.
 
 Anchor links here:
 - [How it works](#How-it-works)
-- [Future Development](#Future Development)
-- [Terms of Use](#Terms of Use for APIs)
+- [Future Development](#Future-Development)
+- [Terms of Use](#Terms-of-Use-for-APIs)
 - [Contributions](#Contributions)
 
 ## Schematic
-[DataFlow diagram](https://pathway.png)
+[DataFlow diagram](./image/process_flow.png)
 
 
 ## How it works
@@ -52,7 +53,7 @@ Anchor links here:
   * Zillow Get Deep Search Results API returns property information, attached to report as "Property Details"
 
 ### Outcome
-[Image of final report](path)
+[Image of final report](./image/sample_report.png)
 
 ## Future development
 
@@ -68,7 +69,7 @@ Anchor links here:
 
 ### Supporting multi-photo assessment reports
 
-**Current state:** Our application automatically generates a damage-assessment report upon capturing a photo. This means that each picture taken prompts a completely new report, which precludes multiple photographs being attached to a singular report. 
+**Current state:** Our application automatically generates a damage-assessment report upon capturing a photo. This means that each picture taken prompts a completely new report, which precludes multiple photographs being attached to a singular report.
 
 **Future state:** Suppose there is exterior damage and interior damage, or damage to the garage as well as the house, a complete damage assessment report would require multiple photographs. To do this, ___
 
@@ -141,6 +142,6 @@ Include disclaimers (e.g., sections 7,8 on Zillow Terms of Use)
 
 **Mikhail Lenko:** established process to retrieve desired information from Google Vision AI and Zillow Get Deep Search APIs using Python, wrote ReadMe.
 **Ryan Leyba:** prototyped function for extracting geolocation data from smart phone image files using Python, created presentation deck.
-**Kai Zhao:** established procees to retrieve desired information from Google Maps APIs, integrated backend code using Python Flask, built front-end user interface with HTML/CSS.
+**Kai Zhao:** established process to retrieve desired information from Google Maps APIs, integrated backend code using Python Flask, built front-end user interface with HTML/CSS.
 
 And special thanks to **Alison Norris** for front-end consultation and **James Huang** for front- and backend consultation.
