@@ -33,7 +33,7 @@ Anchor links here:
 
 ## Schematic
 [DataFlow diagram](./image/process_flow.png)
-
+<img src="./image/process_flow.png">
 
 ## How it works
 
