@@ -52,7 +52,14 @@ Anchor links here:
   * Zillow Get Deep Search Results API returns property information, attached to report as "Property Details"
 
 ### Outcome
-[Image of final report](./image/sample_report.png)
+#### Input Page
+<img src="https://github.com/miecky/project-client_project/blob/master/Image/sample_home_page.png?raw=true">
+
+#### Address Validation Page
+<img src="https://github.com/miecky/project-client_project/blob/master/Image/address_validation.png?raw=true">
+
+#### Output Page
+<img src="https://github.com/miecky/project-client_project/blob/master/Image/sample_report.png?raw=true">
 
 ## Future development
 
