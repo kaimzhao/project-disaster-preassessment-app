@@ -37,9 +37,9 @@
     <form action = "http://localhost:5000/report" method = "POST" enctype = "multipart/form-data" class="form">
         {% if addresses %}
         <div>
-            <label for="select1">Select the correct address:</label>
+            <label for="select1">Select address:</label>
             <select name="address" id="select1">
-                <option value="none">None of the following</option>
+                <option value="none">—Select—</option>
                 {% for addr in addresses %}
                 <option value="{{ addr }}">{{ addr['full_address'] }}</option>
                 {% endfor %}
