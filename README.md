@@ -5,7 +5,8 @@
 Natural disasters, like wildfires, floods, and earthquakes, are tragic events that can harm people, damage property, and strain society in complex ways. Emergency relief organizations exist to mitigate these problems. For our project, we attempt to reduce the strain on society of natural disasters by facilitating the assessment of damage to property, specifically real estate. Our app gives assessors, who are associated either with a relief organization or an insurance company, the means to automatically generate damage assessment reports for residential properties.
 
 The assessor arrives at a residential parcel, takes a picture, and after confirming the relevant address, our app returns a damage assessment report complete with:
-- *before* and *after* images,
+- *before* image, which is an interactive Google Street View panorama, giving the user 
+- *after* image, which is the photo taken by the assessor
 - category of the damage source (e.g., fire, flood, earthquake),
 - and summary details of the property (e.g., property square footage).
 
@@ -17,13 +18,13 @@ By using our application to generate damage assessment reports, provide value to
 Our prototype involves the following APIs:
 - [Google Vision AI](https://cloud.google.com/vision/)
 - [Google Reverse Geocoding](https://developers.google.com/maps/documentation/geocoding/intro#ReverseGeocoding)
-- [Google Street View Static](https://developers.google.com/maps/documentation/streetview/intro)
+- [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview)
 - [Zillow Get Deep Search Results](https://www.zillow.com/howto/api/GetDeepSearchResults.htm)
 
-USAGE NOTE: You will need to provide your own API keys, and modify credentials file path for API calls to your keys. Also note two limitations:
-* Our prototype does not yet support Apple's HEIC format (default on iPhone), users must first select JPEG as output format (Settings -> Camera -> Format -> "Most Compatible").
+USAGE NOTE: You will need to provide your own API keys, make them unrestricted, and modify credentials file path (in app.py) used for API calls. Also note three limitations:
+* Our prototype does not yet support Apple HEIC format (default for iPhone), users must select JPEG as output format (Settings -> Camera -> Format -> "Most Compatible").
 * Our prototype requires that searched properties are included in Zillow database (e.g., commercial property will throw an error)
-* Our prototype requires that geolocation (latitude/longitude) is included in image file's metadata.
+* Our prototype requires that geolocation (latitude/longitude) is included in image file metadata.
 
 Anchor links here:
 - [How it works](#How-it-works)
