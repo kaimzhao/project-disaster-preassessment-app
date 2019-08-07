@@ -87,13 +87,13 @@ Contents:
 **Future state:** Suppose there is exterior damage and interior damage, or damage to the garage as well as the house, a complete damage assessment report would require multiple photographs. To do this, ___
 
 
-### Expand beyond exterior damage
+### Expanding beyond exterior damage
 
 **Current state:** Our application is currently limited to exterior damage. If we could access *before* photographs of the property interior, we could extend our functionality to interior damage.
 
 **Future state:** Zillow has access to interior images of properties, but does not provide them via API per its terms of service. Were we to partner with Zillow and satisfy their legal and business concerns associated with interior images, we could use them to extend our functionality to interior damage assessment.
 
-### Expand beyond residential property
+### Expanding beyond residential property
 
 **Current state:** For context, our application provides property details to assessors using data from Zillow, which is limited to residential real estate.
 
@@ -105,7 +105,7 @@ Contents:
 
 **Future state:** If we partnered with insurance companies, we could include this information in reports.
 
-### Reducing API fees for image classification
+### Reduce API fees for image classification
 
 **Current state:** Our application uses Google Vision AI to classify the source of damage, which incurs fees with use.
 
@@ -115,7 +115,7 @@ Contents:
 
 ## Terms of Use for APIs
 
-Terms of Use for Google APIs ([Maps APIs](https://cloud.google.com/maps-platform/terms/), [Vision AI](https://developers.google.com/terms/):
+Terms of Use for Google APIs ([Maps APIs](https://cloud.google.com/maps-platform/terms/), [Vision AI](https://developers.google.com/terms/)):
 - Terms of Use and Privacy Policy for our application must be publicly available.
 - It must be explicitly stated in our application's Terms of Use that by using our application, users are bound by Google’s [Terms of Service](https://developers.google.com/terms/).
 - It must be noted in Privacy Policy that we are using the Google API(s), and incorporate by reference the Google [Privacy Policy](https://policies.google.com/privacy).
