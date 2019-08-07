@@ -10,7 +10,7 @@ The assessor arrives at a residential parcel, takes a picture, and after confirm
 - category of the damage source (e.g., fire, flood, earthquake),
 - and summary details of the property (e.g., property square footage).
 
-By using our application to generate damage assessment reports, provide value to three stakeholders:
+By using our application to generate damage assessment reports, value is provided to three stakeholders:
 * Insurance claim assessors benefit from a streamlined workflow
 * Policyholders benefit from faster payment adjudication
 * Emergency relief organizations (nonprofits or governmental agencies) benefit from greater insight into damage intensity and efficacy of preventative measures
@@ -21,12 +21,18 @@ Our prototype involves the following APIs:
 - [Google Street View Service](https://developers.google.com/maps/documentation/javascript/streetview)
 - [Zillow Get Deep Search Results](https://www.zillow.com/howto/api/GetDeepSearchResults.htm)
 
-USAGE NOTE: You will need to provide your own API keys, make them unrestricted, and modify credentials file path (in app.py) used for API calls. Also note three limitations:
+### USAGE NOTES:
+1) You will need to provide your own API keys, make them unrestricted, and modify credentials file path (in app.py) used for API calls.
+2) The team was unable to get a singular photo to demonstrate all functionality of the application, so we provide two examples:
+    * Example 1 was taken in-person on the day before the report was generated, which successfully returns the *before* image of the property but fails to classify damage type because Google Vision AI underperforms on new images.
+    * Example 2 was photographed from a computer screen, which successfully returns damage type but fails to return the *before* image of the property because image location metadata corresponds to computer location, not damage site.
+3) Limitations:
 * Our prototype does not yet support Apple HEIC format (default for iPhone), users must select JPEG as output format (Settings -> Camera -> Format -> "Most Compatible").
 * Our prototype requires that searched properties are included in Zillow database (e.g., commercial property will throw an error)
 * Our prototype requires that geolocation (latitude/longitude) is included in image file metadata.
+* Option to manually input address information on the Address Validation page is not yet functional
 
-Anchor links here:
+Contents:
 - [How it works](#How-it-works)
 - [Future Development](#Future-Development)
 - [Terms of Use](#Terms-of-Use-for-APIs)
